@@ -50,11 +50,12 @@ class _Example1State extends State<Example1> {
                     .map((e) => FocusedMenuHolder(
                           menuWidth: MediaQuery.of(context).size.width * 0.50,
                           blurSize: 5.0,
-                          menuItemExtent: 45,
+                          dividerColor: Colors.red,
+                          menuItemExtent: 32,
                           menuBoxDecoration: BoxDecoration(
-                              color: Colors.grey,
+                              color: Colors.white,
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(15.0))),
+                                  BorderRadius.all(Radius.circular(12.0))),
                           duration: Duration(milliseconds: 100),
                           animateMenuItems: true,
                           blurBackgroundColor: Colors.black54,

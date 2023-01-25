@@ -34,6 +34,7 @@ class FocusedMenuHolder extends StatefulWidget {
   final Duration? duration;
   final double? blurSize;
   final Color? blurBackgroundColor;
+  final Color? dividerColor;
   final double? bottomOffsetHeight;
   final double? menuOffset;
 
@@ -61,6 +62,7 @@ class FocusedMenuHolder extends StatefulWidget {
     this.controller,
     this.onOpened,
     this.onClosed,
+    this.dividerColor,
   }) : super(key: key);
 
   @override
@@ -79,8 +81,7 @@ class _FocusedMenuHolderState extends State<FocusedMenuHolder> {
   }
 
   void _getOffset() {
-    RenderBox renderBox =
-        containerKey.currentContext!.findRenderObject() as RenderBox;
+    RenderBox renderBox = containerKey.currentContext!.findRenderObject() as RenderBox;
     Size size = renderBox.size;
     Offset offset = renderBox.localToGlobal(Offset.zero);
     setState(() {
@@ -129,6 +130,7 @@ class _FocusedMenuHolderState extends State<FocusedMenuHolder> {
               blurSize: widget.blurSize,
               menuWidth: widget.menuWidth,
               blurBackgroundColor: widget.blurBackgroundColor,
+              dividerColor: widget.dividerColor,
               animateMenu: widget.animateMenuItems ?? true,
               bottomOffsetHeight: widget.bottomOffsetHeight ?? 0,
               menuOffset: widget.menuOffset ?? 0,
