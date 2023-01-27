@@ -40,7 +40,7 @@ class FocusedMenuDetails extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     final maxMenuHeight = size.height * 0.45;
-    final listHeight = menuItems.length * (itemExtent ?? 50.0);
+    final listHeight = menuItems.length * (itemExtent ?? 50.0)+menuItems.length;
 
     final maxMenuWidth = menuWidth ?? (size.width * 0.70);
     final menuHeight = listHeight < maxMenuHeight ? listHeight : maxMenuHeight;
@@ -49,7 +49,7 @@ class FocusedMenuDetails extends StatelessWidget {
         : (childOffset.dx - maxMenuWidth + childSize!.width);
     final topOffset = (childOffset.dy + menuHeight + childSize!.height) < size.height - bottomOffsetHeight!
         ? childOffset.dy + childSize!.height + menuOffset!
-        : childOffset.dy - menuHeight - menuOffset!;
+        : childOffset.dy - menuHeight - menuOffset!*2;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Container(
@@ -96,7 +96,6 @@ class FocusedMenuDetails extends StatelessWidget {
                       Widget listItem = GestureDetector(
                         behavior: HitTestBehavior.translucent,
                           onTap: () {
-                            print('123123');
                             Navigator.pop(context);
                             item.onPressed();
                           },
