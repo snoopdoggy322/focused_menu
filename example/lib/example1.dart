@@ -1,4 +1,3 @@
-import 'package:example/ScreenTwo.dart';
 import 'package:flutter/material.dart';
 import 'package:focused_menu/focused_menu.dart';
 
@@ -44,41 +43,35 @@ class _Example1State extends State<Example1> {
             Expanded(
               child: GridView(
                 physics: BouncingScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                 children: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
                     .map((e) => FocusedMenuHolder(
-                          menuWidth: MediaQuery.of(context).size.width * 0.50,
-                          blurSize: 5.0,
+                          menuOffset: 8,
+                          animateMenuItems: false,
+                          blurBackgroundColor: Colors.black12,
+                          blurSize: 6,
                           dividerColor: Colors.red,
-                          menuItemExtent: 32,
+                          bottomOffsetHeight: 8,
+                          duration: const Duration(milliseconds: 300),
                           menuBoxDecoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12.0))),
-                          duration: Duration(milliseconds: 100),
-                          animateMenuItems: true,
-                          blurBackgroundColor: Colors.black54,
-                          bottomOffsetHeight: 100,
-                          openWithTap: true,
+                              borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                              color: Colors.white.withOpacity(0.9)),
+                          menuItemExtent: 36,
+                          menuWidth: MediaQuery.of(context).size.width / 2,
                           menuItems: <FocusedMenuItem>[
                             FocusedMenuItem(
-                                title: Text("Open"),
-                                trailing: Icon(Icons.open_in_new),
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => ScreenTwo()));
-                                }),
-                            FocusedMenuItem(
-                                title: Text("Share"),
-                                trailing: Icon(Icons.share),
+                                title: Text(
+                                  'Ответить',
+                                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+                                ),
+                                trailing: Icon(
+                                  Icons.add,
+                                  size: 16,
+                                ),
                                 onPressed: () {}),
+                            FocusedMenuItem(title: Text("Share"), trailing: Icon(Icons.share,size: 16,), onPressed: () {}),
                             FocusedMenuItem(
-                                title: Text("Favorite"),
-                                trailing: Icon(Icons.favorite_border),
-                                onPressed: () {}),
+                                title: Text("Favorite"), trailing: Icon(Icons.favorite_border,size: 16,), onPressed: () {}),
                             FocusedMenuItem(
                                 title: Text(
                                   "Delete",
@@ -86,6 +79,7 @@ class _Example1State extends State<Example1> {
                                 ),
                                 trailing: Icon(
                                   Icons.delete,
+                                  size: 16,
                                   color: Colors.redAccent,
                                 ),
                                 onPressed: () {}),

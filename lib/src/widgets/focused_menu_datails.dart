@@ -94,11 +94,14 @@ class FocusedMenuDetails extends StatelessWidget {
                     itemBuilder: (context, index) {
                       FocusedMenuItem item = menuItems[index];
                       Widget listItem = GestureDetector(
+                        behavior: HitTestBehavior.translucent,
                           onTap: () {
+                            print('123123');
                             Navigator.pop(context);
                             item.onPressed();
                           },
                           child: Container(
+                              height: itemExtent,
                               alignment: Alignment.center,
                               margin: const EdgeInsets.only(bottom: 1),
                               child: Padding(
