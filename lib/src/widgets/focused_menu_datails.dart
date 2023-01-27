@@ -48,8 +48,8 @@ class FocusedMenuDetails extends StatelessWidget {
         ? childOffset.dx
         : (childOffset.dx - maxMenuWidth + childSize!.width);
     final topOffset = (childOffset.dy + menuHeight + childSize!.height) < size.height - bottomOffsetHeight!
-        ? childOffset.dy + childSize!.height + menuOffset!
-        : childOffset.dy - menuHeight - menuOffset!*2;
+        ? childOffset.dy + childSize!.height + menuOffset!-4
+        : childOffset.dy - menuHeight - menuOffset!-8;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Container(

@@ -46,12 +46,11 @@ class _Example1State extends State<Example1> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                 children: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
                     .map((e) => FocusedMenuHolder(
-                          menuOffset: 8,
+                          menuOffset: 0,
                           animateMenuItems: false,
                           blurBackgroundColor: Colors.black12,
                           blurSize: 6,
                           dividerColor: Colors.red,
-                          bottomOffsetHeight: 8,
                           duration: const Duration(milliseconds: 300),
                           menuBoxDecoration: BoxDecoration(
                               borderRadius: BorderRadius.all(Radius.circular(12.0)),
